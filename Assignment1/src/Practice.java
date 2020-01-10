@@ -35,9 +35,7 @@ public class Practice {
 		 * "req_item" is the String that will capture the required item by the user.
 		 * if condition for checking if the required item is present or not.
 		 * */
-		
 		System.out.println("Please enter item name to enter into cart");
-		
 		
 		Scanner scan = new Scanner(System.in);
 		String req_item = scan.nextLine().toLowerCase();
@@ -55,6 +53,31 @@ public class Practice {
 		
 		print(cartItems);
 		addItem(items, cartItems);
+		
+	}
+	
+	public static void removeItem(Map<String, Integer> items, Map<String, Integer> cartItems){
+		
+		System.out.println("REMOVE ITEM: Enter name or type exit.");
+		
+		Scanner scan = new Scanner(System.in);
+		String req_item = scan.nextLine().toLowerCase();
+		if(req_item.contains("exit")){
+			System.out.println("You are on main menu.");
+		}else{
+			if(cartItems.containsKey(req_item)){
+				int amount = cartItems.get(req_item);
+				amount -= items.get(req_item);
+				if(amount == 0){
+					//remove item.
+					cartItems.remove(req_item);
+				}else{
+					cartItems.replace(req_item, amount);
+				}
+			}else{
+				System.out.println("There is no such item.");
+			}
+		}
 		
 	}
 

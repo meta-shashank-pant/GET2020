@@ -17,9 +17,11 @@ public class Cart {
 	}
 	
 	public static void start(){
+		
 		Scanner scan = new Scanner(System.in);
 		int val;
 		while(flag != 0){
+			System.out.println("1. ADD ITEMS\n2. REMOVE ITEMS\n3. DISPLAY ITEMS\n4. FINAL BILL AND EXIT.");
 			val = scan.nextInt();
 			switch(val){
 			case 1:
@@ -28,7 +30,7 @@ public class Cart {
 				break;
 			case 2:
 				System.out.println("Remove Item");
-				removeItem();
+				removeItem(items, cartItems);
 				break;
 			case 3:
 				System.out.println("Display Item");
@@ -71,7 +73,7 @@ public class Cart {
 		 * if condition for checking if the required item is present or not.
 		 * */
 		
-		System.out.println("Please enter item name to enter into cart OR Type exit to exit.");
+		System.out.println("ADD ITEMS: Enter name or type exit.");
 		Scanner scan = new Scanner(System.in);
 		String req_item = scan.nextLine().toLowerCase();
 		
@@ -96,8 +98,34 @@ public class Cart {
 		
 	}
 
+	public static void removeItem(Map<String, Integer> items, Map<String, Integer> cartItems){
+		
+		System.out.println("REMOVE ITEM: Enter name or type exit.");
+		
+		Scanner scan = new Scanner(System.in);
+		String req_item = scan.nextLine().toLowerCase();
+		if(req_item.contains("exit")){
+			System.out.println("You are on main menu.");
+		}else{
+			if(cartItems.containsKey(req_item)){
+				int amount = cartItems.get(req_item);
+				amount -= items.get(req_item);
+				if(amount == 0){
+					//remove item.
+					cartItems.remove(req_item);
+				}else{
+					cartItems.replace(req_item, amount);
+				}
+			}else{
+				System.out.println("There is no such item.");
+			}
+			displayItem(cartItems);
+			removeItem(items,cartItems);
+		}
+		
+	}
 	
-	public static void removeItem(){}
+	
 	
 	public static void totalBill(){}
 	
