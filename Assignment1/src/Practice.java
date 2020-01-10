@@ -1,4 +1,5 @@
 import java.util.HashMap; 
+import java.util.Iterator;
 import java.util.Map; 
 import java.util.Scanner;
 public class Practice {
@@ -52,6 +53,7 @@ public class Practice {
 		}
 		
 		print(cartItems);
+		billDisplay(cartItems);
 		addItem(items, cartItems);
 		
 	}
@@ -79,6 +81,19 @@ public class Practice {
 			}
 		}
 		
+	}
+	
+	public static void billDisplay(Map<String, Integer> cartItems){
+		
+        Iterator itemIterator = cartItems.entrySet().iterator(); 
+  
+         
+  
+        while (itemIterator.hasNext()) { 
+            Map.Entry mapElement = (Map.Entry)itemIterator.next(); 
+            int marks = (int)mapElement.getValue(); 
+            System.out.println(mapElement.getKey() + " : " + marks);
+        }
 	}
 
 }

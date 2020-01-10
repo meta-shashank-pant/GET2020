@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -21,7 +22,7 @@ public class Cart {
 		Scanner scan = new Scanner(System.in);
 		int val;
 		while(flag != 0){
-			System.out.println("1. ADD ITEMS\n2. REMOVE ITEMS\n3. DISPLAY ITEMS\n4. FINAL BILL AND EXIT.");
+			System.out.println("\n\n1. ADD ITEMS\n2. REMOVE ITEMS\n3. DISPLAY ITEMS\n4. FINAL BILL AND EXIT.");
 			val = scan.nextInt();
 			switch(val){
 			case 1:
@@ -34,11 +35,12 @@ public class Cart {
 				break;
 			case 3:
 				System.out.println("Display Item");
-				displayItem(cartItems);
+				billDisplay(cartItems);
 				break;
 			case 4:
 				System.out.println("Total Bill and Exit");
-				totalBill();
+				billDisplay(cartItems);
+				System.out.println("Thankyou for shopping with us.");
 				flag = 0;
 				break;
 			default:
@@ -50,27 +52,13 @@ public class Cart {
 
 	}
 	
-	public static void displayItem(Map<String, Integer> map) 
-    { 
-		/*
-		 * This method is used for displaying the items in the hashmap.
-		 */
-		
-        if (map.isEmpty()) { 
-            System.out.println("map is empty"); 
-        } 
-  
-        else { 
-            System.out.println(map); 
-        } 
-    } 
-	
 	public static void addItem(Map<String, Integer> items, Map<String, Integer> cartItems){
 		
-		/* This method is used for adding any item into cart.
-		 * "cartItem" is the HashMap to store the items into the cart.
+		/* 
+		 * This method is used for adding any item into cart.
+		 * @param cartItem: It is HashMap to store the items into the cart.
+		 * @param items: It is the HashMap storing all items name and prices. 
 		 * "req_item" is the String that will capture the required item by the user.
-		 * if condition for checking if the required item is present or not.
 		 * */
 		
 		System.out.println("ADD ITEMS: Enter name or type exit.");
@@ -88,17 +76,22 @@ public class Cart {
 				}else{
 					cartItems.put(req_item, amount);
 				}
+				System.out.println(req_item+" added successfully!\n");
 			}else{
-				System.out.println("Item not present.");
+				System.out.println("Sorry! "+req_item+" not available.\n");
 			}
-			
-			displayItem(cartItems);
 			addItem(items, cartItems);
 		}
 		
 	}
 
 	public static void removeItem(Map<String, Integer> items, Map<String, Integer> cartItems){
+		
+		/*
+		 * The purpose of this function is to remove an item from the cart.
+		 * @param item: HashMap of all the items.
+		 * @param cartItems: HashMap of items in cart.
+		 */
 		
 		System.out.println("REMOVE ITEM: Enter name or type exit.");
 		
@@ -116,18 +109,30 @@ public class Cart {
 				}else{
 					cartItems.replace(req_item, amount);
 				}
+				System.out.println(req_item+" removed successfully!");
 			}else{
 				System.out.println("There is no such item.");
 			}
-			displayItem(cartItems);
 			removeItem(items,cartItems);
 		}
 		
 	}
 	
-	
-	
-	public static void totalBill(){}
+    public static void billDisplay(Map<String, Integer> cartItems){
+		/*
+		 * Purpose of this function is to display the key and values of HashMap along with the total.
+		 * @param cartItems: It holds all the items and their prices in the cartItems HashMap.
+		 */
+        Iterator itemIterator = cartItems.entrySet().iterator(); 
+        int finalBill=0;
+         while (itemIterator.hasNext()) { 
+            Map.Entry item = (Map.Entry)itemIterator.next(); 
+            int price = (int)item.getValue(); 
+            System.out.println(item.getKey() + " : " + price);
+            finalBill += price;
+        }
+         System.out.println("Total Bill: "+finalBill);
+	}
 	
 
 }
