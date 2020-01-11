@@ -23,7 +23,11 @@ public class Cart {
 		int val;
 		while(flag != 0){
 			System.out.println("1. ADD ITEMS\n2. REMOVE ITEMS\n3. DISPLAY ITEMS\n4. FINAL BILL AND EXIT.");
-			val = scan.nextInt();
+			try{
+				val = scan.nextInt();
+			}catch(Exception e){
+				val = 5;
+			}
 			switch(val){
 			case 1:
 				printList(item_name);
