@@ -20,22 +20,22 @@ public class Cart {
 	public static void start(){
 		
 		Scanner scan = new Scanner(System.in);
-		int val;
+		int val=1;
 		while(flag != 0){
 			System.out.println("1. ADD ITEMS\n2. REMOVE ITEMS\n3. DISPLAY ITEMS\n4. FINAL BILL AND EXIT.");
 			try{
 				val = scan.nextInt();
 			}catch(Exception e){
-				val = 5;
+				start();
 			}
 			switch(val){
 			case 1:
-				printList(item_name);
+				printList(item_name,item_price);
 				System.out.println("ADD ITEMS: Enter item id or type exit.");
 				addItem(items, cartItems, item_name);
 				break;
 			case 2:
-				printList(item_name);
+				printList(item_name,item_price);
 				System.out.println("REMOVE ITEM: Enter id or type exit.");
 				removeItem(items, cartItems, item_name);
 				break;
@@ -50,8 +50,7 @@ public class Cart {
 				flag = 0;
 				break;
 			default:
-				System.out.println("Unidentified Value(Exit)");
-				flag = 0;
+				System.out.println("Invalid input!, Try again.");
 				break;
 			}
 		}
@@ -158,22 +157,23 @@ public class Cart {
 		 */
         Iterator itemIterator = cartItems.entrySet().iterator(); 
         int finalBill=0, i=0, quantity=0;
-        System.out.println("Item\tQuant\tPrice");
+        System.out.println("Item\tPrice\tQuant\tTotal");
          while (itemIterator.hasNext()) { 
             Map.Entry item = (Map.Entry)itemIterator.next(); 
             int price = (int)item.getValue();
-            quantity = price/all_items.get(item.getKey());
-            System.out.println(item.getKey() + "\t" + quantity + "\t  " + price);
+            int individual_price = all_items.get(item.getKey());
+            quantity = price/individual_price;
+            System.out.println(item.getKey() + "\t" + individual_price+ "\t" + quantity + "\t" + price);
             finalBill += price;
             i++;
         }
          System.out.println("Total Bill: "+finalBill);
 	}
     
-    public static void printList(String[] item_name){
-    	System.out.println("ID\tName");
+    public static void printList(String[] item_name, int[] item_price){
+    	System.out.println("ID\tName\tPrice");
     	for(int i=0;i<item_name.length;i++){
-    		System.out.println(i+"\t"+item_name[i]);
+    		System.out.println(i+"\t"+item_name[i]+"\t"+item_price[i]);
     	}
     }
 	
