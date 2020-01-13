@@ -3,7 +3,13 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
 public class Cart {
-	
+	/*
+	 * The Cart class is the implementation of various function that a cart needs.
+	 * Here, item addition, deletion, display and final bill functions are performed.
+	 * "cartItems" is used to keep track of elements that are added to the cart.
+	 * "items" HashMap is used to hold the elements in the mart along with the price.
+	 * "item_name" and "item_price" are array to hold the names and the price of the items, they are used to give each element an id.
+	 */
 	static int flag;
 	static HashMap<String, Integer> cartItems = new HashMap<>();
 	static HashMap<String, Integer> items = new HashMap<>();
@@ -18,7 +24,10 @@ public class Cart {
 	}
 	
 	public static void start(){
-		
+		/*
+		 * This method is invoked from the driver class.
+		 * User will interact with this function and will perform various functions.
+		 */
 		Scanner scan = new Scanner(System.in);
 		int val=1;
 		while(flag != 0){
@@ -171,6 +180,11 @@ public class Cart {
 	}
     
     public static void printList(String[] item_name, int[] item_price){
+    	/*
+    	 * This function will print item list along with serial number and price.
+    	 * @param item_name is array holding item name.
+    	 * @param item_price is array holding item price.
+    	 */
     	System.out.println("ID\tName\tPrice");
     	for(int i=0;i<item_name.length;i++){
     		System.out.println(i+"\t"+item_name[i]+"\t"+item_price[i]);
