@@ -109,13 +109,40 @@ public class HexCalc {
 		try{
 			int_number = scan.nextInt();
 			number = int_number;
-			result = Integer.toHexString(number);
+			result = decToHexa(number);
 		}catch(Exception e){
 			System.out.println("Invalid Input!!!");
 			result = "0";
 		}
 		return result;
 	}
+	
+	static String decToHexa(int n) 
+    {    
+        char[] hexaDeciNum = new char[100]; 
+        String output = "";
+        int i = 0; 
+        while(n!=0) 
+        {    
+            int temp  = 0; 
+            temp = n % 16; 
+            if(temp < 10) 
+            { 
+                hexaDeciNum[i] = (char)(temp + 48); 
+                i++; 
+            } 
+            else
+            { 
+                hexaDeciNum[i] = (char)(temp + 55); 
+                i++; 
+            } 
+            n = n/16; 
+        } 
+       
+        for(int j=i-1; j>=0; j--) 
+            output += hexaDeciNum[j]; 
+        return output;
+    } 
 	
 	public static void single_hex_input(){
 		Scanner scan = new Scanner(System.in);
