@@ -154,36 +154,36 @@ public class HexCalc implements HexCalculator {
 	 * @param n is the input integer.
 	 * @return output is the string output.
 	 */
-	public String decToHexa(int n) {
+	public String decToHexa(int number) {
 		
 		char[] hexaDeciNum = new char[100]; 
-        String output = "";
-        int i = 0;
-        if(n == 0){
-        	output = "0";
-        	return output;
-        }
-        while(n!=0) 
-        {    
-            int temp  = 0; 
-            temp = n % 16; 
-            if(temp < 10) 
-            { 
-                hexaDeciNum[i] = (char)(temp + 48); 
-                i++; 
-            } 
-            else
-            { 
-                hexaDeciNum[i] = (char)(temp + 55); 
-                i++; 
-            } 
-            n = n/16; 
-        } 
+		String output = "";
+		int i = 0;
+		if(number == 0){
+			output = "0";
+			return output;
+		}
+		while(number != 0) 
+		{    
+			int temp  = 0; 
+			temp = number % 16; 
+			if(temp < 10) 
+			{ 
+				hexaDeciNum[i] = (char)(temp + 48); 
+				i++; 
+			} 
+			else
+			{ 
+				hexaDeciNum[i] = (char)(temp + 55); 
+				i++; 
+			} 
+			number = number / 16; 
+		} 
        
-        for(int j=i-1; j>=0; j--) 
-            output += hexaDeciNum[j]; 
-        return output;
-    } 
+		for(int j=i-1; j>=0; j--) 
+			output += hexaDeciNum[j]; 
+		return output;
+	} 
 	
 	/**
 	 * This function is used for taking single valid hexadecimal input.
@@ -209,17 +209,17 @@ public class HexCalc implements HexCalculator {
 	public void two_hex_input(){
 		
 		Scanner scan = new Scanner(System.in);
-		Boolean flag;
+		Boolean isHex;
 		System.out.print("Enter 1st hexadecimal number: ");
 		hex_input[0] = scan.nextLine();
-		flag = isHexNumber(hex_input[0]);
-		if(!flag){
+		isHex = isHexNumber(hex_input[0]);
+		if(!isHex){
 			two_hex_input();
 		}
 		System.out.print("Enter 2nd hexadecimal number: ");
 		hex_input[1] = scan.nextLine();
-		flag = isHexNumber(hex_input[1]);
-		if(!flag){
+		isHex = isHexNumber(hex_input[1]);
+		if(!isHex){
 			System.out.print("");
 			two_hex_input();
 		}
@@ -249,29 +249,28 @@ public class HexCalc implements HexCalculator {
 	 */
 	public int hexadecimalToDecimal(String hexVal){
 		
-        int len = hexVal.length(); 
-        int base = 1; 
-        int dec_val = 0; 
-       
-        for (int i=len-1; i>=0; i--) 
-        {     
-            if (hexVal.charAt(i) >= '0' && hexVal.charAt(i) <= '9') 
-            { 
-                dec_val += (hexVal.charAt(i) - 48)*base; 
-                base = base * 16; 
-            } 
-            else if (hexVal.charAt(i) >= 'A' && hexVal.charAt(i) <= 'F') 
-            { 
-                dec_val += (hexVal.charAt(i) - 55)*base; 
-                base = base*16; 
-            }
-            else if(hexVal.charAt(i) >= 'a' && hexVal.charAt(i) <= 'f'){
-            	dec_val += (hexVal.charAt(i) - 87)*base; 
-                base = base*16;
-            }
-        } 
-        return dec_val; 
-    } 
+		int len = hexVal.length(); 
+		int base = 1; 
+		int dec_val = 0; 
+		for (int i=len-1; i>=0; i--) 
+		{     
+			if (hexVal.charAt(i) >= '0' && hexVal.charAt(i) <= '9') 
+			{ 
+				dec_val += (hexVal.charAt(i) - 48)*base; 
+				base = base * 16; 
+			} 
+			else if (hexVal.charAt(i) >= 'A' && hexVal.charAt(i) <= 'F') 
+			{ 
+				dec_val += (hexVal.charAt(i) - 55)*base; 
+				base = base*16; 
+			}
+			else if(hexVal.charAt(i) >= 'a' && hexVal.charAt(i) <= 'f'){
+				dec_val += (hexVal.charAt(i) - 87)*base; 
+				base = base*16;
+			}
+		} 
+		return dec_val; 
+	} 
 	
 	/**
 	 * This method will perform addition of hexadecimal numbers.
