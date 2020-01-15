@@ -90,23 +90,23 @@ public class JobScheduler{
 	 */
 	public static void sort(){
 		
-        for (int i = 0; i < jobs-1; i++)
-            for (int j = 0; j < jobs-i-1; j++)
-                if (arrival_time[j] > arrival_time[j+1])
-                {
-                    int temp1 = arrival_time[j];
-                    arrival_time[j] = arrival_time[j+1];
-                    arrival_time[j+1] = temp1;
+		for (int i = 0; i < jobs-1; i++)
+			for (int j = 0; j < jobs-i-1; j++)
+				if (arrival_time[j] > arrival_time[j+1])
+				{
+					int temp1 = arrival_time[j];
+					arrival_time[j] = arrival_time[j+1];
+					arrival_time[j+1] = temp1;
                     
-                    int temp2 = burst_time[j];
-                    burst_time[j] = burst_time[j+1];
-                    burst_time[j+1] = temp2;
+					int temp2 = burst_time[j];
+					burst_time[j] = burst_time[j+1];
+					burst_time[j+1] = temp2;
                     
-                    int temp3 = process_number[j];
-                    process_number[j] = process_number[j+1];
-                    process_number[j+1] = temp3;
-                }
-	}
+					int temp3 = process_number[j];
+					process_number[j] = process_number[j+1];
+					process_number[j+1] = temp3;
+				}
+		}
 	
 	/**
 	 * In this method FCFS scheduling is performed and the results are stored in following array data structure.
