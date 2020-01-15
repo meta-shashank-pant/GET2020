@@ -154,8 +154,8 @@ public class HexCalc implements HexCalculator {
 	 * @param n is the input integer.
 	 * @return output is the string output.
 	 */
-	public String decToHexa(int n) 
-    {    
+	public String decToHexa(int n) {
+		
 		char[] hexaDeciNum = new char[100]; 
         String output = "";
         int i = 0;
@@ -230,7 +230,7 @@ public class HexCalc implements HexCalculator {
 	 * @param hex_string is the input string.
 	 * @return value is boolean, that means true if number is hexadecimal otherwise false.
 	 */
-	public boolean isHexNumber (String hex_string) {
+	public boolean isHexNumber(String hex_string){
 		
 		  try {
 		    Long.parseLong(hex_string, 16);
@@ -247,8 +247,8 @@ public class HexCalc implements HexCalculator {
 	 * @param hexVal is hexadecimal input string.
 	 * @return dec_val is the integer value equivalent of hexVal.
 	 */
-	public int hexadecimalToDecimal(String hexVal) 
-    {   
+	public int hexadecimalToDecimal(String hexVal){
+		
         int len = hexVal.length(); 
         int base = 1; 
         int dec_val = 0; 

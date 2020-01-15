@@ -16,7 +16,7 @@ import java.util.Scanner;
  * 4. Average waiting time.
  * 5. Maximum waiting time.
  */
-public class JobScheduler {
+public class JobScheduler{
 
 	static int [] arrival_time = new int[100];
 	static int [] burst_time = new int[100];
@@ -32,6 +32,7 @@ public class JobScheduler {
 	 * This is the called function from the main function in this class.
 	 */
 	public static void start(){
+		
 		System.out.println("Welcome to Job Scheduler.");
 		input();
 		display();
@@ -46,6 +47,7 @@ public class JobScheduler {
 	 * to take error free input, Exception Handling is done.
 	 */
 	public static void input(){
+		
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter number of jobs: ");
 		jobs = 0;
