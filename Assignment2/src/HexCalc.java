@@ -1,18 +1,27 @@
 import java.util.Scanner;
-public class HexCalc {
 
-	static int flag;
-	static String hex_input[] = new String[2];
-	static int number=0;
+/**
+ * @author Shashank
+ * HexCalc class will help in implementation of various operation on hexadecimal numbers.
+ * hex_input[] is string array of size 2. For storing 2 hexadecimal number to perform operation.
+ * int number will store the result of hexadecimal to decimal conversion.
+ * This class is designed for non negative hexadecimal string.
+ */
+public class HexCalc {
+	
+	private static int flag;
+	private static String hex_input[] = new String[2];
+	private static int number=0;
 	public HexCalc(){
 		this.flag = 1;
 	}
 	
+	/**
+	 * start() is driver function for this class.
+	 * Switch Case statement will help user to perform various task.
+	 */
 	public static void start(){
-		/*
-		 * start() is driver function for this class.
-		 * Switch Case statement will help user to perform various task.
-		 */
+		
 		Scanner scan = new Scanner(System.in);
 		int val=1;
 		System.out.println("Welcome to HEX Calculator.");
@@ -80,6 +89,12 @@ public class HexCalc {
 		}
 	}
 	
+	/**
+	 * Compare two hexadecimal strings.			
+	 * @param hex_1 is the first hexadecimal input string.
+	 * @param hex_2 is the second hexadecimal input string.
+	 * @return value will be the larger hexadecimal string.
+	 */
 	public static String compare(String hex_1, String hex_2){
 		
 		if(hex_1.length() > hex_2.length()){
@@ -87,21 +102,38 @@ public class HexCalc {
 		}else if(hex_1.length() < hex_2.length()){
 			return hex_2;
 		}else{
-			int len = hex_1.length();
-			for(int i = 0; i < len; i++){
-				if(hex_1.charAt(i) > hex_2.charAt(i)){
-					return hex_1;
-				}else if(hex_1.charAt(i) < hex_2.charAt(i)){
-					return hex_2;
-				}else{
-					continue;
-				}
-			}
-			return "Both numbers are equal.";
+			return equalCompare(hex_1, hex_2);
 		}
 	}
 	
+	/**
+	 * Compare two hexadecimal strings when the length of strings are equal.
+	 * @param hex_1 is the first hexadecimal input string.
+	 * @param hex_2 is the second hexadecimal input string.
+	 * @return the maximum number, if any, otherwise return "Both numbers are equal.".
+	 */
+	public static String equalCompare(String hex_1, String hex_2){
+		
+		int len = hex_1.length();
+		for(int i = 0; i < len; i++){
+			if(hex_1.charAt(i) > hex_2.charAt(i)){
+				return hex_1;
+			}else if(hex_1.charAt(i) < hex_2.charAt(i)){
+				return hex_2;
+			}else{
+				continue;
+			}
+		}
+		return "Both numbers are equal.";
+	}
+	
+	/**
+	 * This function will perform decimal to hexadecimal conversion.
+	 * In this function, integer input is taken from user and passed to decToHexa(number) function.
+	 * @return result will have the hexadecimal string.
+	 */
 	public static String decimalToHexadecimal(){
+		
 		Scanner scan = new Scanner(System.in);
 		int int_number;
 		String result;
@@ -117,11 +149,20 @@ public class HexCalc {
 		return result;
 	}
 	
+	/**
+	 * This function will take input from decimalToHexadecimal() and then perform conversion.
+	 * @param n is the input integer.
+	 * @return output is the string output.
+	 */
 	static String decToHexa(int n) 
     {    
-        char[] hexaDeciNum = new char[100]; 
+		char[] hexaDeciNum = new char[100]; 
         String output = "";
-        int i = 0; 
+        int i = 0;
+        if(n == 0){
+        	output = "0";
+        	return output;
+        }
         while(n!=0) 
         {    
             int temp  = 0; 
@@ -144,7 +185,12 @@ public class HexCalc {
         return output;
     } 
 	
+	/**
+	 * This function is used for taking single valid hexadecimal input.
+	 * Taken input will be stored in hex_input string array.
+	 */
 	public static void single_hex_input(){
+		
 		Scanner scan = new Scanner(System.in);
 		Boolean flag;
 		System.out.print("Enter hexadecimal number: ");
@@ -155,7 +201,13 @@ public class HexCalc {
 		}
 	}
 	
+	/**
+	 * This function is used to take 2 valid hexadecimal input.
+	 * The function isHexNumber() will check if the entered input is hexadecimal or not.
+	 * The valid inputs will be stored in hex_input[] array. 
+	 */
 	public static void two_hex_input(){
+		
 		Scanner scan = new Scanner(System.in);
 		Boolean flag;
 		System.out.print("Enter 1st hexadecimal number: ");
@@ -173,7 +225,13 @@ public class HexCalc {
 		}
 	}
 	
+	/**
+	 * This function is used to check if a number is valid hexadecimal number.
+	 * @param hex_string is the input string.
+	 * @return value is boolean, that means true if number is hexadecimal otherwise false.
+	 */
 	private static boolean isHexNumber (String hex_string) {
+		
 		  try {
 		    Long.parseLong(hex_string, 16);
 		    return true;
@@ -184,8 +242,13 @@ public class HexCalc {
 		  }
 	}
 	
+	/**
+	 * This function will convert hexadecimal number to decimal.
+	 * @param hexVal is hexadecimal input string.
+	 * @return dec_val is the integer value equivalent of hexVal.
+	 */
 	static int hexadecimalToDecimal(String hexVal) 
-    {    
+    {   
         int len = hexVal.length(); 
         int base = 1; 
         int dec_val = 0; 
@@ -210,6 +273,13 @@ public class HexCalc {
         return dec_val; 
     } 
 	
+	/**
+	 * This method will perform addition of hexadecimal numbers.
+	 * @param hex_1 is the first hexadecimal input string.
+	 * @param hex_2 is the second hexadecimal input string.
+	 * @return result is the hexadecimal string that contains the answer.
+	 * Here, hexadecimal string is converted into decimal string and then added.
+	 */
 	public static String addition(String hex_1, String hex_2){
 		
 		int int_result;
@@ -218,6 +288,13 @@ public class HexCalc {
 		return result;
 	}
 	
+	/**
+	 * This method will perform subtraction of hexadecimal numbers.
+	 * @param hex_1 is the first hexadecimal input string.
+	 * @param hex_2 is the second hexadecimal input string.
+	 * @return result is the hexadecimal string that contains the answer.
+	 * Here, hexadecimal string is converted into decimal string and then subtracted.
+	 */
 	public static String subtraction(String hex_1, String hex_2){
 		
 		int int_result;
@@ -230,6 +307,13 @@ public class HexCalc {
 		return result;
 	}
 	
+	/**
+	 * This method will perform multiplication of hexadecimal numbers.
+	 * @param hex_1 is the first hexadecimal input string.
+	 * @param hex_2 is the second hexadecimal input string.
+	 * @return result is the hexadecimal string that contains the answer.
+	 * Here, hexadecimal string is converted into decimal string and then multiplied.
+	 */
 	public static String multiplication(String hex_1, String hex_2){
 		
 		int int_result;
@@ -238,6 +322,13 @@ public class HexCalc {
 		return result;
 	}
 	
+	/**
+	 * This method will perform division of hexadecimal numbers.
+	 * @param hex_1 is the first hexadecimal input string.
+	 * @param hex_2 is the second hexadecimal input string.
+	 * @return result is the hexadecimal string that contains the answer.
+	 * Here, hexadecimal string is converted into decimal string and then divided.
+	 */
 	public static String division(String hex_1, String hex_2){
 		
 		int int_result;
@@ -246,6 +337,13 @@ public class HexCalc {
 		return result;
 	}
 	
+	/**
+	 * This method is used to get remainder of hexadecimal number.
+	 * @param hex_1 is the first hexadecimal input string.
+	 * @param hex_2 is the second hexadecimal input string.
+	 * @return result is the hexadecimal string that contains the answer.
+	 * Here, hexadecimal string is converted into decimal string and then modulus operation is applied.
+	 */
 	public static String remainder(String hex_1, String hex_2){
 		
 		int int_result;

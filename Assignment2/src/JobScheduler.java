@@ -1,4 +1,21 @@
 import java.util.Scanner;
+
+/**
+ * Job Scheduler is implemented using FCFS scheduling algorithm.
+ * @author Shashank
+ * In this class user will give input and on the basis of that the scheduling is performed.
+ * Here the assumption is that there will be no more than 100 jobs.
+ * User will give input:
+ * 1. Number of jobs
+ * 2. Burst time of each job.
+ * 3. Arrival time of each job.
+ * Output screen additionally have:
+ * 1. Completion time of each job.
+ * 2. Waiting time of each job.
+ * 3. Turn around time of each job.
+ * 4. Average waiting time.
+ * 5. Maximum waiting time.
+ */
 public class JobScheduler {
 
 	static int [] arrival_time = new int[100];
@@ -10,6 +27,10 @@ public class JobScheduler {
 	static int jobs;
 	static double average_waiting_time;
 	static int max_waiting_time;
+	
+	/**
+	 * This is the called function from the main function in this class.
+	 */
 	public static void start(){
 		System.out.println("Welcome to Job Scheduler.");
 		input();
@@ -19,6 +40,11 @@ public class JobScheduler {
 		result();
 	}
 	
+	/**
+	 * This function is used to take input, number of jobs.
+	 * input function will be used in taking error free input from the user.
+	 * to take error free input, Exception Handling is done.
+	 */
 	public static void input(){
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter number of jobs: ");
@@ -35,6 +61,10 @@ public class JobScheduler {
 		}
 	}
 	
+	/**
+	 * This function is used to take input arrival and burst time of each job.
+	 * @param index is the individual job index for which arrival and burst time is fetched from user.
+	 */
 	public static void takeInput(int index){
 		
 		Scanner scan = new Scanner(System.in);
@@ -49,6 +79,13 @@ public class JobScheduler {
 		}
 	}
 	
+	/**
+	 * sort() function is used to sort the jobs according to the arrival time.
+	 * Here, for sorting bubble sort is used.
+	 * In accordance to arrival time following attributes will get sorted:
+	 * 1. burst time
+	 * 2. process number
+	 */
 	public static void sort(){
 		
         for (int i = 0; i < jobs-1; i++)
@@ -69,6 +106,15 @@ public class JobScheduler {
                 }
 	}
 	
+	/**
+	 * In this method FCFS scheduling is performed and the results are stored in following array data structure.
+	 * Here, these following attributes are calculated:
+	 * 1. Waiting Time 
+	 * 2. Turn Around Time = Waiting time + Burst time
+	 * 3. Completion Time = Arrival time + Waiting time + Burst time
+	 * 4. Maximum waiting time
+	 * 5. Average waiting time = Total waiting time / total jobs
+	 */
 	public static void fcfs(){
 		
 		waiting_time[0] = 0;
@@ -100,6 +146,9 @@ public class JobScheduler {
 		average_waiting_time = total_waiting_time / jobs;
 	}
 	
+	/**
+	 * This method is used to display Process number, Arrival time, Burst time.
+	 */
 	public static void display(){
 		
 		System.out.println("Process\tArrival\tBurst");
@@ -108,6 +157,17 @@ public class JobScheduler {
 		}
 	}
 	
+	/**
+	 * This function is used to print the following items on the final screen:
+	 * 1. Process number
+	 * 2. Arrival time
+	 * 3. Burst time
+	 * 4. Waiting time
+	 * 5. Completion time
+	 * 6. Turn around time
+	 * 7. Average waiting time
+	 * 8. Maximum waiting time
+	 */
 	public static void result(){
 		System.out.println("Process\tArrival\tBurst\tWaiting\tComp.\tT.A.T");
 		for(int i = 0; i < jobs; i++){
