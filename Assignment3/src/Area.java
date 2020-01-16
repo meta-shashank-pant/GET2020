@@ -1,11 +1,26 @@
 import java.util.Scanner;
 
-
+/**
+ * Area class will calculate the area of various geometries like:
+ * Triangle, Rectangle, Square, Circle.
+ * @author Shashank
+ * Area will be calculated for valid inputs only.
+ */
 public class Area {
 
 	private boolean flag = true;
 	private double height, width, radius;
 	private double PI = 3.14;
+	
+	/**
+	 * start() is the driver method in this class, it is called from main() method.
+	 * Here, variable "val" will hold the user choice among various options like:
+	 * 1. Area of Triangle
+	 * 2. Area of Rectangle
+	 * 3. Area of Square
+	 * 4. Area of Circle
+	 * Output string is formatted and displayed to user in this function.
+	 */
 	public void start(){
 		
 		System.out.println("Calculate the area :- ");
@@ -70,6 +85,13 @@ public class Area {
 
 	}
 	
+	/**
+	 * This method is used to calculate the area of triangle.
+	 * @param width is the input width of triangle of type double.
+	 * @param height is the input height of triangle of type double.
+	 * @return output is the resultant area of the triangle of type double.
+	 * Formula used: Area of triangle = (1 / 2) * (width * height)
+	 */
 	private double triangle(double width, double height){
 		
 		double output = 0;
@@ -81,6 +103,13 @@ public class Area {
 		return output;
 	}
 	
+	/**
+	 * This method is used to calculate the area of rectangle.
+	 * @param width is the input width of rectangle of type double.
+	 * @param height is the input height of rectangle of type double.
+	 * @return output is the resultant area of the rectangle of type double.
+	 * Formula used: Area of rectangle = (width * height)
+	 */
 	private double rectangle(double width, double height){
 		
 		double output = 0;
@@ -92,6 +121,12 @@ public class Area {
 		return output;
 	}
 	
+	/**
+	 * This method is used to calculate the area of square.
+	 * @param width is the input width of square of type double.
+	 * @return output is the resultant area of the square of type double.
+	 * Formula used: Area of square = (width * width)
+	 */
 	private double square(double width){
 		
 		double output = 0;
@@ -103,6 +138,12 @@ public class Area {
 		return output;
 	}
 	
+	/**
+	 * This method is used to calculate the area of circle.
+	 * @param radius is the input radius of circle of type double.
+	 * @return output is the resultant area of the circle of type double.
+	 * Formula used: Area of circle = PI * (radius * radius)
+	 */
 	private double circle(double radius){
 		
 		double output = 0;
@@ -114,13 +155,20 @@ public class Area {
 		return output;
 	}
 	
+	/**
+	 * Functionality of this method is to take input and check if its valid and then returning the same.
+	 * @return value is the valid double value.
+	 * For a value to be valid:
+	 * 1. It should be a double value.
+	 * 2. The value should be greater than 0.
+	 */
 	private double get_input(){
 		
 		Scanner scan = new Scanner(System.in);
 		double output = 0;
 		try{
 			output = scan.nextDouble();
-			if(output <= 0){
+			if(output < 0){
 				System.out.println("Invalid argument! ");
 				get_input();
 			}
