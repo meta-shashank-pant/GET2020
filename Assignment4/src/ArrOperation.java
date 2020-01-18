@@ -179,38 +179,4 @@ public class ArrOperation {
 		return max;
 	}
 	
-	public int maxMirrorAlternate(int[] input_array){
-		int max_val = 0, start, end;
-		boolean flag = false;
-		int arr_length = input_array.length;
-		for(int i = 0; i < arr_length; i++){
-			for(int j = i + 1; j < arr_length; j++){
-				int tmp_max_val = 0;
-				if(input_array[i] == input_array[j]){
-					start = i+1;
-					end = j-1;
-					tmp_max_val++;
-					while(start <= end){
-						if(input_array[start] == input_array[end]){
-							tmp_max_val++;
-							flag = true;
-							start++;
-							end--;
-						}else{
-							flag = false;
-							break;
-						}
-					}
-					if(flag){
-						tmp_max_val = (tmp_max_val * 2) - 1;
-					}
-				}
-				if(tmp_max_val > max_val){
-					max_val = tmp_max_val;
-				}
-			}
-		}
-		return max_val;
-	}
-	
 }
