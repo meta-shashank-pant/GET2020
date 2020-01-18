@@ -23,7 +23,10 @@ public class CountClumpsTest {
         return Arrays.asList(new Object[][] {
                 { new int[] { 1, 2, 2, 3, 4, 4 }, 2 },
                 { new int[] { 1, 1, 2, 1, 1 }, 2 },
-                { new int[] { 1, 1, 1, 1, 1 }, 1 }});
+                { new int[] { 1, 1, 1, 1, 1 }, 1 },
+                { new int[] { 45, 23, 45, 23, 12, 67, 88 }, 0},
+                { new int[] { 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 2, 3, 4, 4, 5, 6,5 ,5 ,4 ,3 ,4 ,4 ,2 }, 4},
+                { new int[] { 1 }, 0}});
     }
 
     @Test

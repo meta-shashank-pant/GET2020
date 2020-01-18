@@ -27,15 +27,12 @@ public class LargestMirrorTest {
                 { new int[] { 7, 1, 4, 9, 7, 4, 1 }, 2 },
                 { new int[] { 1, 2, 1, 4 }, 3 },
                 { new int[] { 1, 4, 5, 3, 5, 4, 1 }, 7 },
-                { new int[] {1,2,1,3,4,5,6,3,4,3,4,7,8,4,1,2,4,5,6,7,8,9,7,6,5,4,1,8,9,5,3} , 4},
+                { new int[] {1, 2, 1, 3, 4, 5, 6, 3, 4, 3, 4, 7, 8, 4, 1, 2, 4, 5, 6, 7, 8, 9, 7, 6, 5, 4, 1, 8, 9, 5, 3} , 4},
                 { new int[] {1}, 1},
-                { new int[] {}, 0}});
-    }
-    
-    @Test(expected = AssertionError.class)
-    public void testForException(){
-    	ArrOperation arr_operation = new ArrOperation();
-    	arr_operation.maxMirror(new int[0]);
+               	{ new int[] {1, 2, 3, 4, 3, 2, 1, 4, 5, 6, 7, 7, 8, 9, 3, 2, 1, 4, 5, 6, 7, 8, 6, 5, 4, 3, 2, 1}, 7},
+               	{ new int[] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, 10},
+               	{ new int[] {0, 1, 3, 4, 1, 3, 2, 4, 5, 1, 2, 5, 4, 2, 3}, 4},
+               	{ new int[] {1, 2}, 1}});
     }
     
     @Test
