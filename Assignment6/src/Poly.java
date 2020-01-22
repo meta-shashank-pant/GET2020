@@ -1,4 +1,8 @@
-
+/**
+ * This class has methods to perform operations on single variable polynomials.
+ * @author Shashank
+ * This class is immutable.
+ */
 public class Poly {
 
 	private final int coefficient[];
@@ -6,6 +10,12 @@ public class Poly {
 	private final int length;
 	private final int maxDegree;
 	
+	/**
+	 * Constructor.
+	 * @param coefficient is the input array of type integer, holding the coefficients.
+	 * @param degree is the input array of type integer, holding the degree.
+	 * @param length is the length of the array.
+	 */
 	public Poly(int coefficient[], int degree[], int length){
 		this.coefficient = coefficient;
 		this.degree = degree;
@@ -13,7 +23,11 @@ public class Poly {
 		this.maxDegree = degree[length-1];
 	}
 	
-	
+	/**
+	 * This method is used to evaluate the polynomials.
+	 * @param var is the input double, for which the polynomial is solved. 
+	 * @return value is of type double and holds the result.
+	 */
 	public double evaluate(double var){
 		double result;
 		double output = 0;
@@ -25,22 +39,40 @@ public class Poly {
 		return output;
 	}
 	
+	/**
+	 * @return value is the max degree in the polynomial equation.
+	 */
 	public int getMaxDegree(){
 		return maxDegree;
 	}
 	
+	/**
+	 * @return is the length of the array(coefficient, degree).
+	 */
 	public int getLength(){
 		return length;
 	}
 	
+	/**
+	 * @return array is of type integer and holds the coefficient.
+	 */
 	public int[] getCoefficient(){
 		return coefficient;
 	}
 	
+	/**
+	 * @return array is of type integer and holds the degree.
+	 */
 	public int[] getDegree(){
 		return degree;
 	}
 	
+	/**
+	 * This method will perform addition operation on two polynomials.
+	 * @param p1 is input object of type Poly.
+	 * @param p2 is input object of type Poly.
+	 * @return value is String which shows the result after the addition operation.
+	 */
 	public static String addPoly(Poly p1, Poly p2){
 		int len1 = p1.getLength();
 		int len2 = p2.getLength();
@@ -64,6 +96,14 @@ public class Poly {
 		return result;
 	}
 	
+	/**
+	 * This method is called from addPoly() and multiplyPoly() and will help in performing the addition of similar degree coefficient.
+	 * @param coeff is the input array of type integer.
+	 * @param deg is the input array of type integer.
+	 * @param max_deg is the maximum degree of the polynomial.
+	 * @param total_len is the total length of the array.
+	 * @return is the string holding final result.
+	 */
 	private static String addition(int coeff[], int deg[], int max_deg, int total_len){
 		int[][] final_output = new int[total_len][2];
 		int index = 0;
@@ -92,6 +132,12 @@ public class Poly {
 		return result;
 	}
 	
+	/**
+	 * This method will perform multiplication on two polynomials.
+	 * @param p1 is input object of type Poly.
+	 * @param p2 is input object of type Poly.
+	 * @return is the string holding the result of multiplication.
+	 */
 	public static String multiplyPoly(Poly p1, Poly p2){
 		String result = "";
 		int index = 0;
@@ -116,8 +162,4 @@ public class Poly {
 		return result;
 	}
 	
-	public void print(int a[]){
-		for(int i=0;i<a.length;i++)
-			System.out.print(a[i]+" ");
-	}
 }

@@ -2,20 +2,20 @@ import java.util.Scanner;
 
 
 public class Main {
-
+	/**
+	 * This method is the driver method for this assignment.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Assigment 6");
 		start();
-//		int arr[] = {1,5,4,8,7,9,10,78,56};
-//		int arr1[] = {9,8,1,10};
-//		
-//		IntSet set1 = new IntSet(arr, 9);
-//		IntSet set2 = new IntSet(arr1, 4);
-//		int arrr[] = set2.getComplement();
-//		System.out.print(IntSet.isSubset(set1, set2));
 	}
 	
+	/**
+	 * This method will take user input for performing either IntSet operation or Polynomial operation.
+	 * Switch case statement is used here.
+	 */
 	public static void start(){
 	Scanner scan = new Scanner(System.in);
 	boolean flag = true;
@@ -106,6 +106,11 @@ public class Main {
 		scan.close();
 	}
 	
+	/**
+	 * This method is used to create object of immutable class IntSet.
+	 * @param int_set is the input object of type IntSet.
+	 * @return is the object of type IntSet.
+	 */
 	public static IntSet set_object(IntSet int_set){
 		Scanner scan = new Scanner(System.in);
 		int length;
@@ -122,6 +127,12 @@ public class Main {
 		return int_set;
 	}
 	
+	/**
+	 * This method will create unique element array or set.
+	 * This method is called from set_object() method.
+	 * @param arr is the input array of type integer.
+	 * @return is the integer array holding unique integer values.
+	 */
 	public static int[] makeSet(int arr[]){
 		int size = arr.length;
 		int[] temp_new_set = new int[11];
@@ -145,12 +156,21 @@ public class Main {
 		return new_set;
 	}
 	
+	/**
+	 * This method will help in printing array.
+	 * @param arr is the integer array to be printed.
+	 */
 	public static void printArray(int arr[]){
 		for(int i = 0; i < arr.length; i++)
 			System.out.print(arr[i]+" ");
 	}
 	
-	public static Poly poly(Poly p){
+	/**
+	 * This method is used to create object of immutable class Poly.
+	 * @param poly_object is input object of Poly class.
+	 * @return value is the object of class Poly.
+	 */
+	public static Poly poly(Poly poly_object){
 		int max_deg;
 		int[] coeff = new int[50];
 		int[] deg = new int[50];
@@ -161,7 +181,7 @@ public class Main {
 			max_deg = scan.nextInt();
 		}catch(Exception e){
 			System.out.println("Not Integer");
-			poly(p);
+			poly(poly_object);
 			return null;
 		}
 		
@@ -174,7 +194,7 @@ public class Main {
 				index++;
 			}
 		}
-		p = new Poly(coeff, deg, index);
-		return p;
+		poly_object = new Poly(coeff, deg, index);
+		return poly_object;
 	}
 }
