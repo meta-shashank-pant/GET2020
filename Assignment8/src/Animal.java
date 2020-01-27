@@ -34,6 +34,12 @@ public abstract class Animal {
         this.fillData(ID+"\t"+name+"\t\t"+age+"\t\t"+weight+"\t\t"+type+"\t\t"+zone, animalCatagory);
     }
     
+    /**
+     * This method is used to fill the data inside ArrayList.
+     * @param input is information about animal of type string.
+     * @param animalCategory is the category in which animal falls.
+     * @throws Exception
+     */
     public void fillData(String input, String animalCategory) throws Exception {
     	ArrayList<String> animal = new ArrayList<String>(2);
     	animal.add(input);
@@ -41,6 +47,49 @@ public abstract class Animal {
     	data.add(animal);
     }
     
+    /**
+     * This method is used to get zone of any animal.
+     * @param animalCategory is the category in which animal falls.
+     * @param id is the unique id of type string assigned to each animal.
+     * @return value is the zone of type string
+     */
+    public static String getZone(String animalCategory, String id){
+    	for(ArrayList<String> animal: data){
+    		if(animal.get(1) == animalCategory){
+    			String[] tmp_arr = animal.get(0).split("\t",0);
+    			if(tmp_arr[0].contains(id)){
+    				return tmp_arr[9];
+    			}
+    		}
+    	}
+    	return "Not Found";	
+    }
+    
+    /**
+     * This method is used to get type of the animal.
+     * @param animalCategory is the category in which animal falls.
+     * @param id is the unique id of type string assigned to each animal.
+     * @return value is the type of animal.
+     */
+    public static String getType(String animalCategory, String id){
+    	for(ArrayList<String> animal: data){
+    		if(animal.get(1) == animalCategory){
+    			String[] tmp_arr = animal.get(0).split("\t",0);
+    			if(tmp_arr[0].contains(id)){
+    				return tmp_arr[7];
+    			}
+    		}
+    	}
+    	return "Not Found";	
+    }
+    
+    /**
+     * This method is used to delete the record of any animal from ArrayList<>.
+     * @param animalCategory is the category in which animal falls.
+     * @param id is the unique id of type string assigned to each animal.
+     * @return value is of type boolean that is true if successful deletion.
+     * @throws Exception
+     */
     public static boolean deleteData(String animalCategory, String id) throws Exception {
     	int count = 0;
     	for(ArrayList<String> animal: data){
@@ -56,7 +105,13 @@ public abstract class Animal {
     	return false;	
     }
     
+    /**
+     * This method is used to print the data.
+     * @param animalCategory is the category for which data is to printed.
+     * @throws Exception
+     */
     public static void printData(String animalCategory) throws Exception {
+    	System.out.println("ID\t\tname\t\tage\t\tweight\t\ttype\t\tzone");
     	for(ArrayList<String> animal: data){
     		if(animal.get(1) == animalCategory){
     			System.out.println(animal.get(0));

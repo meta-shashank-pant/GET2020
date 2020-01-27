@@ -92,7 +92,7 @@ public class Main {
      */
     public static void delete() throws NumberFormatException{
         boolean flag = true, isDeleted;
-        String animalCategory, id;
+        String animalCategory, id, zone, type;
         
         System.out.println("Show status of : \n 1) Mammal \n 2) Reptile \n "
                 + "3) Bird \n 4) Exit");
@@ -107,10 +107,18 @@ public class Main {
 					Animal.printData(animalCategory);
 					System.out.print("Enter animal id: ");
 					id = br.readLine();
+					zone = Animal.getZone(animalCategory, id);
+					type = Animal.getType(animalCategory, id);
+					System.out.println("################## "+zone+" ***** "+type+" #############");
 					isDeleted = Animal.deleteData(animalCategory, id);
-					if(isDeleted)
+					if(isDeleted){
 						System.out.println("Successfully Removal!!!");
-					else
+						if(zone.contains("Zone 1")){
+							ZoneOne.getInstance().removedAnimal(type);
+						}else{
+							ZoneTwo.getInstance().removedAnimal(type);
+						}
+					}else
 						System.out.println("Animal not found!!!");
 				    flag = false;
 				    break;
@@ -120,10 +128,15 @@ public class Main {
 					Animal.printData(animalCategory);
 					System.out.print("Enter animal id: ");
 					id = br.readLine();
+					zone = Animal.getZone(animalCategory, id);
+					type = Animal.getType(animalCategory, id);
 					isDeleted = Animal.deleteData(animalCategory, id);
-					if(isDeleted)
+					if(isDeleted){
 						System.out.println("Successfully Removal!!!");
-					else
+						if(zone.contains("Zone 3")){
+							ZoneThird.getInstance().removedAnimal(animalCategory);
+						}
+					}else
 						System.out.println("Animal not found!!!");
 				    flag = false;
 				    break;
@@ -133,10 +146,17 @@ public class Main {
 					Animal.printData(animalCategory);
 					System.out.print("Enter animal id: ");
 					id = br.readLine();
+					zone = Animal.getZone(animalCategory, id);
+					type = Animal.getType(animalCategory, id);
 					isDeleted = Animal.deleteData(animalCategory, id);
-					if(isDeleted)
+					if(isDeleted){
 						System.out.println("Successfully Removal!!!");
-					else
+						if(zone.contains("Zone 4")){
+							ZoneFour.getInstance().removedAnimal(animalCategory);
+						}else{
+							ZoneFive.getInstance().removedAnimal(animalCategory);
+						}
+					}else
 						System.out.println("Animal not found!!!");
 				    flag = false;
 				    break;
@@ -206,9 +226,9 @@ public class Main {
      * @param no parameter       
      * @return String value
      */
-    public static String id(String animalCatagory, String animalType) {
+    public static String id(String animalType) {
         Random random = new Random(); 
-        return animalCatagory + animalType + random.nextInt(1000);
+        return animalType + random.nextInt(1000);
     }
     
     /**
@@ -292,15 +312,15 @@ public class Main {
             try {
 				switch (Integer.parseInt(br.readLine())) {
 				case 1:
-				    new Lion(name(), age(), weight(), "Lion", zone("Mammal", "Lion"), id("M", "Lion"));
+				    new Lion(name(), age(), weight(), "Lion", zone("Mammal", "Lion"), id("Lion"));
 				    flag = false;
 				    break;
 				case 2:
-				    new Bear(name(), age(), weight(), "Bear", zone("Mammal", "Bear"), id("M", "Bear"));
+				    new Bear(name(), age(), weight(), "Bear", zone("Mammal", "Bear"), id("Bear"));
 				    flag = false;
 				    break;
 				case 3:
-				    new Tiger(name(), age(), weight(), "Tiger", zone("Mammal", "Tiger"), id("M", "Tiger"));
+				    new Tiger(name(), age(), weight(), "Tiger", zone("Mammal", "Tiger"), id("Tiger"));
 				    flag = false;
 				    break;
 				default:
@@ -332,15 +352,15 @@ public class Main {
             System.out.print("Select Your Option : ");
             switch (Integer.parseInt(br.readLine())) {
             case 1:
-                new Crocodiles(name(), age(), weight(), "Crocodiles", zone("Reptile", "Crocodiles"), id("R", "Crocodiles"));
+                new Crocodiles(name(), age(), weight(), "Crocodiles", zone("Reptile", "Crocodiles"), id("Crocodiles"));
                 flag = false;
                 break;
             case 2:
-                new Alligators(name(), age(), weight(), "Alligators", zone("Reptile", "Alligators"), id("R", "Alligators"));
+                new Alligators(name(), age(), weight(), "Alligators", zone("Reptile", "Alligators"), id("Alligators"));
                 flag = false;
                 break;
             case 3:
-                new Lizards(name(), age(), weight(), "Lizards", zone("Reptile", "Lizards"), id("R", "Lizards"));
+                new Lizards(name(), age(), weight(), "Lizards", zone("Reptile", "Lizards"), id("Lizards"));
                 flag = false;
                 break;
             default:
@@ -365,15 +385,15 @@ public class Main {
             System.out.print("Select Your Option : ");
             switch (Integer.parseInt(br.readLine())) {
             case 1:
-                new Owl(name(), age(), weight(), "Owl", zone("Bird", "Owl"), id("B", "Owl"));
+                new Owl(name(), age(), weight(), "Owl", zone("Bird", "Owl"), id("Owl"));
                 flag = false;
                 break;
             case 2:
-                new Parrot(name(), age(), weight(), "Parrot", zone("Bird", "Parrot"), id("B", "Parrot"));
+                new Parrot(name(), age(), weight(), "Parrot", zone("Bird", "Parrot"), id("Parrot"));
                 flag = false;
                 break;
             case 3:
-                new Peacock(name(), age(), weight(), "Peacock", zone("Bird", "Peacock"), id("B", "Peacock"));
+                new Peacock(name(), age(), weight(), "Peacock", zone("Bird", "Peacock"), id("Peacock"));
                 flag = false;
                 break;
             default:

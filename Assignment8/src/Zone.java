@@ -53,8 +53,13 @@ class ZoneOne implements Zone{
         return zo;
     }
     
-    public void removedAnimal(String type){
-    	zone.put(type, new ArrayList<Integer>(Arrays.asList((zone.get(type).get(0)-1),(zone.get(type).get(1)))));
+    /**
+     * This method is used to update the record in case of deletion of animal record.
+     * @param type is the type of animal.
+     * @throws NullPointerException
+     */
+    public void removedAnimal(String type) throws NullPointerException{
+    	zone.put(type, new ArrayList<Integer>(Arrays.asList((zone.get(type).get(0) - 1),(zone.get(type).get(1)))));
     	this.numberOfAnimal--;
     }
     
@@ -159,6 +164,11 @@ class ZoneTwo implements Zone{
         return zo;
     }
     
+    /**
+     * This method is used to update the record in case of deletion of animal record.
+     * @param type is the type of animal.
+     * @throws NullPointerException
+     */
     public void removedAnimal(String type){
     	zone.put(type, new ArrayList<Integer>(Arrays.asList((zone.get(type).get(0)-1),(zone.get(type).get(1)))));
     	this.numberOfAnimal--;
@@ -264,6 +274,11 @@ class ZoneThird implements Zone{
         return zo;
     }
     
+    /**
+     * This method is used to update the record in case of deletion of animal record.
+     * @param type is the type of animal.
+     * @throws NullPointerException
+     */
     public void removedAnimal(String type){
     	zone.put(type, new ArrayList<Integer>(Arrays.asList((zone.get(type).get(0)-1),(zone.get(type).get(1)))));
     	this.numberOfAnimal--;
@@ -365,6 +380,11 @@ class ZoneFour implements Zone{
         return zo;
     }
     
+    /**
+     * This method is used to update the record in case of deletion of animal record.
+     * @param type is the type of animal.
+     * @throws NullPointerException
+     */
     public void removedAnimal(String type){
     	zone.put(type, new ArrayList<Integer>(Arrays.asList((zone.get(type).get(0)-1),(zone.get(type).get(1)))));
     	this.numberOfAnimal--;
@@ -470,6 +490,11 @@ class ZoneFive implements Zone{
         return zo;
     }
     
+    /**
+     * This method is used to update the record in case of deletion of animal record.
+     * @param type is the type of animal.
+     * @throws NullPointerException
+     */
     public void removedAnimal(String type){
     	zone.put(type, new ArrayList<Integer>(Arrays.asList((zone.get(type).get(0)-1),(zone.get(type).get(1)))));
     	this.numberOfAnimal--;
