@@ -1,48 +1,84 @@
 package controller;
 import java.util.*;
 
+import view.Main;
+import e_num.Status;
 import facade.Cart_Operation;
 
 public class Product_Controller {
 	
-	private static HashMap<Integer, String[]> cartItems = new HashMap<>();
-	
 	private Product_Controller(){}
 	
-	public static String[] get_name(){ return Cart_Operation.get_name(); }
+	public static HashMap<Integer, String[]> get_items() { return Cart_Operation.get_items(); }
+
+	public static HashMap<Integer, String[]> getCart() { return Cart_Operation.sendCart(); }
 	
-	public static int[] get_price(){ return Cart_Operation.get_price(); }
-	
-	public static HashMap<Integer, String[]> controller(int choice) {
+	public static Status controller(int choice) {
 		boolean flag = true;
+		int key, qty;
+		Status response = null;
 		while(flag){
 			switch(choice){
 			case 1:
-				//printList(item_name,item_price);
-				System.out.println("ADD ITEMS: Enter item id or type exit.");
-				//addItem(items, cartItems, item_name);
+				try {
+					Main.printItems();
+					key = Main.getKey();
+					if(key == 0)
+						return Status.OK;
+					else if(key == -1)
+						return Status.EXIT;
+					qty = Main.getQty();
+					if(qty == 0)
+						return Status.OK;
+					else if(key == -1)
+						return Status.EXIT;
+					//Add Operation
+					response = Cart_Operation.addItems(key, qty);
+					return response;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					response = Status.ERROR;
+				}
+				flag = false;
 				break;
 			case 2:
-				//printList(item_name,item_price);
-				System.out.println("REMOVE ITEM: Enter id or type exit.");
-				//removeItem(items, cartItems, item_name);
+				try {
+					Main.printCart();
+					key = Main.getKey();
+					if(key == 0)
+						return Status.OK;
+					else if(key == -1)
+						return Status.EXIT;
+					qty = Main.getQty();
+					if(qty == 0)
+						return Status.OK;
+					else if(key == -1)
+						return Status.EXIT;
+					//Delete Operation
+					response = Cart_Operation.deleteItem(key, qty);
+					return response;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					response = Status.ERROR;
+				}
 				break;
 			case 3:
-				System.out.println("Display Item");
-				//billDisplay(items,cartItems);
+				Main.printCart();
+				response = Status.EXIT;
+				flag = false;
 				break;
 			case 4:
-				System.out.println("Total Bill and Exit");
-				//billDisplay(items,cartItems);
-				System.out.println("Thankyou for shopping with us.");
+				Main.displayBill();
+				response = Status.EXIT;
 				flag = false;
 				break;
 			default:
-				System.out.println("Invalid input!, Try again.");
+				response = Status.WRONG_CASE;
 				break;
 			}
 		}
-		
-		return cartItems;
+		return response;
 	}
 }
