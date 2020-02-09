@@ -6,13 +6,28 @@ import e_num.Status;
 import facade.Cart_Operation;
 
 public class Product_Controller {
-	
+	/**
+	 * private constructor
+	 */
 	private Product_Controller(){}
 	
+	/**
+	 * This method will return the item HashMap.
+	 * @return value is of type HashMap.
+	 */
 	public static HashMap<Integer, String[]> get_items() { return Cart_Operation.get_items(); }
-
+	
+	/**
+	 * This method return the cart items.
+	 * @return value is of type HashMap.
+	 */
 	public static HashMap<Integer, String[]> getCart() { return Cart_Operation.sendCart(); }
 	
+	/**
+	 * This method will divert the control from the View layer to the Facade layer.
+	 * @param choice is the case which is selected by the user.
+	 * @return is the response of type Status(ENUM).
+	 */
 	public static Status controller(int choice) {
 		boolean flag = true;
 		int key, qty;

@@ -15,7 +15,13 @@ public class Cart_Operation {
 	public static HashMap<Integer, String[]> cart(){
 		return cartItems;
 	}
-	
+	/**
+	 * This method will perform item addition to the cart.
+	 * @param key is the key of the item to be added.
+	 * @param qty is the amount of items to be added.
+	 * @return is the response of type Status which is ENUM.
+	 * @throws Exception
+	 */
 	public static Status addItems(int key, int qty) throws Exception {
 		String value[] = new String[4];
 		if(items.containsKey(key)){
@@ -32,6 +38,13 @@ public class Cart_Operation {
 		return Status.ITEM_NOT_FOUND;
 	}
 	
+	/**
+	 * This method will perform item removed from the cart.
+	 * @param key is the key of the item to be removed.
+	 * @param qty is the amount of items to be removed.
+	 * @return is the response of type Status which is ENUM.
+	 * @throws Exception
+	 */
 	public static Status deleteItem(int key, int qty) throws Exception {
 		if(cartItems.containsKey(key)){
 			int curr_qty = Integer.parseInt(cartItems.get(key)[3]);
