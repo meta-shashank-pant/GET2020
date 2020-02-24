@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Metacube</title>
+	<link rel="stylesheet" href="style.css">
+  	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<form action = "v_info">
+            <h1>Add Vehicle</h1>
+            <fieldset>
+                <legend><h2>Enter Vehicle Information: </h2></legend>
+                <label>Vehicle Name</label>
+                <input id = "VehicleName" class = "input" type = "text" name = "VehicleName" placeholder = "Vehicle Name" /><br>
+            
+                <label>Vehicle Number</label>
+                <input id = "VehicleNumber" class = "input" type = "text" name = "VehicleNumber" placeholder = "Vehicle Number" /><br>
+            
+                <label>Employee ID</label>
+                <input id = "empId" class = "input" type = "text" name = "empId" placeholder = "Employee ID"/><br>
+            
+                <label>Identification</label>
+                <textarea id = "Identification" class = "input" placeholder="Identification" name = "Identification"></textarea><br>
+                
+                <label>Vehicle Type</label>
+                <select id = "VehicleType" name = "VehicleType">
+                    <option value = "Cycle">Cycle</option>
+                    <option value = "MotorCycle">MotorCycle</option>
+                    <option value = "FourWheelers">Four Wheelers</option>
+                </select>
+
+                <label>Select Currency</label>
+                <select id = "VehicleCurrency" name = "VehicleCurrency">
+                    <option value = "INR">INR</option>
+                    <option value = "USD" selected>USD</option>
+                    <option value = "YEN">YEN</option>
+                </select><br>
+                <input id = "submitVehical" type = "submit" value="GET PASS"/><br><br><br>
+            </fieldset>
+        </form>
+</body>
+</html>
