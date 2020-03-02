@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Metacube</title>
+    <link rel="stylesheet" href="parkingcss.css">
+
+
+</head>
+
+<body background = "background.jpg">
+    <div>
+        <div class = "navbar">
+                <a href="#emp" class="link_Style">Add Employee</a>
+                <a href="#veh" class="link_Style">Add Vehicle</a>
+                <a href="#feed" class="link_Style">Give feedback</a>
+                <a href="#price" class="link_Style">Pricing</a>
+        </div>
+
+        <div class="header">
+            <h1>Metacube Parking System</h1>
+        </div>
+    </div>
+
+    <button type="button" class="collapsible" id="emp">Employee Details</button>
+    <div id="Employee_details" class="content">
+        <h2>Employee Detail</h2>
+        <form id="Employee_Details_Form" name="Employee_Details_Form">
+            <div>
+                <label class="label_font">Full Name: </label>
+                <input type="text" placeholder="Please enter full name" name="fullname" id="name" class="input_font"
+                    required>
+            </div>
+            <div>
+                <label class="label_font">Gender: </label>
+                <span class="input_font">
+                    <input type="radio" name="gender">Male
+                    <input type="radio" name="gender">Female </span>
+            </div>
+            <div>
+                <label class="label_font">Email: </label>
+                <input type="email" placeholder="email" name="email" id="email" class="input_font" required>
+            </div>
+            <div>
+                <label class="label_font">Password: </label>
+                <input type="password" placeholder="password" name="password" id="password" class="input_font" required>
+            </div>
+            <div>
+                <label class="label_font">Confirm Password: </label>
+                <input type="password" placeholder="confirm password" name="confirmpassword" id="confirm_password"
+                    class="input_font" required>
+            </div>
+            <div>
+                <label class="label_font">Contact Number: </label>
+                <input type="tel" placeholder="contact number" name="contactnumber" id="number" class="input_font">
+            </div>
+            <div class="button_style">
+                <input type="button" class = "btn" value="Register">
+            </div>
+        </form>
+    </div>
+
+
+
+    <button type="button" class="collapsible" id = "veh">Vehicle Details</button>
+    <div id="Vehicle_details" class="content">
+        <h2>Vehicle Detail</h2>
+
+        <form>
+            <div>
+                <label class="label_font">Vehicle Make: </label>
+                <input type="text" placeholder="Please enter company name" class="input_font" required>
+            </div>
+            <div>
+                <label class="label_font">Vehicle Model: </label>
+                <input type="text" placeholder="Please enter vehicle name" name="vehiclename" class="input_font" required>
+            </div>
+            <div>
+                <label class="label_font">Type: </label>
+                <select id="selectType" class="input_font">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Cycle">Cycle</option>
+                    <option value="MotorCycle">MotorCycle</option>
+                    <option value="FourWheelers">Four Wheelers</option>
+                </select>
+            </div>
+            <div>
+                <label class="label_font">Vehicle Number: </label>
+                <input type="text" placeholder="Vehicle number" name="vehiclenumber" class="input_font" required>
+            </div>
+            <div>
+                <label class="label_font">Emplopye Id: </label>
+                <input type="text" placeholder="Employe Id" name="employeId" class="input_font" required>
+            </div>
+            <div>
+                <label class="label_font">Identification: </label>
+                <textarea rows="4" cols="50" class="input_font">  </textarea>
+            </div>
+            <div class="button_style">
+                <input type="submit" id="register" class = "btn" value="Register">
+            </div>
+        </form>
+    </div>
+
+
+    <button type="button" class="collapsible" id="feed"> Feedback </button>
+    <div id="Feedback" class="content">
+        <h2>Get In Touch</h2>
+        <form>
+            <div class="feedbackInput">
+                <input type="text" placeholder="full name" class="feedbackText" required>
+            </div>
+            <div class="feedbackInput">
+                <input type="email" placeholder="Email" class="feedbackText" required>
+            </div>
+            <div class="feedbackInput">
+                <input type="text" placeholder="Subject" class="feedbackText" required>
+            </div>
+            <div class="feedbackInput">
+                <textarea rows="4" cols="50" placeholder="Message" class="feedbackText"></textarea>
+            </div>
+            <div class="feedbackInput" id="sendMail">
+                <input type="submit" value="Send Email" class = "btn" id="submitButton">
+            </div>
+            </form>
+    </div>
+
+
+    <button type="button" class="collapsible" id="price">Pricing</button>
+    <div id="Pricing" align="center" class="content">
+        <h2>Pricing</h2>
+
+
+        <div class="SelectPricing" id="CyclePrice">
+            <div class="vehicle_type">
+                <label> <strong>Cycle</strong></label>
+            </div>
+            <div class="monthlyPrice">
+                <label>$100 Monthly</label>
+            </div>
+            <div class="prices">
+                <label class="label_price">$5 Daily</label>
+                <label class="label_price">$100 Monthly</label>
+                <label class="label_price">$500 Yearly</label>
+            </div>
+            <div class="purchase_now">
+                <input class = "btn" type="submit" value="PURCHASE NOW" class="purchase_Input">
+            </div>
+        </div>
+
+
+        <div class="SelectPricing">
+            <div class="vehicle_type">
+                <label><strong>Motor Cycle</strong></label>
+            </div>
+            <div class="monthlyPrice">
+                <label>$200 Monthly</label>
+            </div>
+            <div class="prices">
+                <label class="label_price">$100 Daily</label>
+                <label class="label_price">$200 Monthly</label>
+                <label class="label_price">$1000 Yearly</label>
+            </div>
+            <div class="purchase_now">
+                <input class = "btn" type="submit" value="PURCHASE NOW" class="purchase_Input">
+            </div>
+        </div>
+
+
+        <div class="SelectPricing">
+            <div class="vehicle_type">
+                <label><strong>Four Wheelers</strong></label>
+            </div>
+            <div class="monthlyPrice">
+                <label>$500 Monthly</label>
+            </div>
+            <div class="prices">
+                <label class="label_price">$20 Daily</label>
+                <label class="label_price">$500 Monthly</label>
+                <label class="label_price">$3500 Yearly</label>
+            </div>
+            <div class="purchase_now">
+                <input class = "btn" type="submit" value="PURCHASE NOW" class="purchase_Input">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
