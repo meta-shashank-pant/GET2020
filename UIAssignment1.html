@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <title>Assignment1</title>
+        </head>
+
+        <body background="background.jpg">
+            <!--This is the navigational bar on top of the -->
+            <nav>
+                <a href="#Employee_Details">Add Employee</a>
+                <a href="#Vehicle_Details">Add Vehicle</a>
+                <a href="#Feedback_Details">Give Feedback</a>
+                <a href="#Pricing_Details">Pricing</a>
+            </nav>
+            <!--Navigational bar end here-->
+
+            <div align= "center"><h1>Metacube Parking System</h1></div>
+
+            <!--Employee detail division starts here.-->
+            <div id="Employee_Details" name="Employee_Details" class="Employee_Details" align= "center">
+
+                <!--Employee detail form starts here.-->
+                <form id="Employee_Details_Form" name="Employee_Details_Form">
+                        <h2>Employee Details</h2> <br>
+                       
+                        <div>
+                            <label>Full Name: </label>
+                            <label>
+                                <input type="text" placeholder="Please enter full name" name="fullname" id="name" max="20" min="3" required>
+                            </label>
+                        </div>
+
+                        <div>
+                                <label>Gender: </label>
+                                <label>
+                                    <input type="radio" name="gender" checked> Male
+                                    <input type="radio" name="gender"> Female
+                                </label>
+                        </div>
+                        
+                        <div>
+                                <label>Email :</label>
+                                <label>
+                                    <input type="email" placeholder="email" name="email" id="email" required>
+                                </label>
+                        </div>
+                        <div>
+                                <label>Password :</label>
+                                <label>
+                                    <input type="password" placeholder="password" name="password" id="password" max="20" min="8" required>
+                                </label>
+                        </div>
+                        <div>
+                                <label>Confirm Password :</label>
+                                <label>
+                                    <input type="password" placeholder="confirm password" name="confirmpassword" 
+                                            id="confirm_password" max="20" min="8" required>
+                                </label>
+                        </div>
+            
+                        <div>
+                            <label>Contact No. :</label>
+                            <label>
+                                <input type="tel" placeholder="contact number" name="contactnumber" id="number" max="10" min="8" required>
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit" value="register" href="#Vehicle_Details">Submit Button</button>
+                        </div>
+                </form>    
+                <!--Employee form ends here-->            
+            </div>
+            <!--Employee details division ends here-->
+
+            <!--Vehicle Details division begin here-->
+            <div id="Vehicle_Details" name="Vehicle_Details" class="Vehicle_Details" align= "center">
+
+                <!--Vehicle detail form begins-->
+                <form action="" id="Vehicle_Details_Form" name="Vehicle_Details_Form">
+
+                        <h2> Vehicle Details </h2>
+                        
+                        <div>
+                                <label>Vehicle Name :</label>
+                                <label>
+                                    <input type="text" placeholder="Please enter vehicle name" name="vehiclename"  max="15" min="2" required>
+                                </label>
+                        </div>
+                        <div>
+                                <label>Type :</label>
+                                <label>
+                                    <select id="selectType">
+                                        <option value="Cycle" selected>Cycle</option>
+                                        <option value="MotorCycle">MotorCycle</option>
+                                        <option value="FourWheelers">Four Wheelers</option>
+                                    </select>
+                                </label>
+                        </div>
+                        
+                        <div>
+                                <label>Vehicle Number :</label>
+                                <label>
+                                    <input type="text" placeholder="Vehicle number" name="vehiclenumber" max="12" min="8" required>
+                                </label>
+                        </div>
+            
+                        <div>
+                                <label>Emplopye Id :</label>
+                                <label>
+                                    <input type="text" placeholder="Employee Id" name="employeeId" max="12" min="1" required>
+                                </label>
+                        </div>
+                        
+                        <div>
+                                <label>Identification :</label>
+                                <label>
+                                    <textarea rows="4" cols="50" maxlength="200" required></textarea>
+                                </label>
+                        </div>
+
+                        <div>
+                            <button type="submit" value="register">Submit Button</button>    
+                        </div>
+                </form>
+                <!--Vehicle details form ends here-->
+            </div>
+            <!--Vehicle details division ends here-->
+
+            <!--Feedback Details division begin here-->
+            <div id="Feedback_Details" name="Feedback_Details" align= "center">     
+                
+                <!--Feedback details form begins here-->
+                <form action="" id="Feedback_Details_Form" name="Feedback_Details_Form">
+
+                        <h2> Give Feedback </h2>
+
+                    <div>
+                        <label>Name: </label>
+                        <label><input type="text" placeholder="Your Name" name="name" required></label>
+                    </div>
+
+                    <div>
+                        <label>Email: </label>
+                        <label><input type="email" placeholder="email" name="email_feedback" required></label>
+                    </div>
+
+                    <div>
+                        <label>Subject: </label>
+                        <label><input type="text" placeholder="subject" name="subject_feedback" required></label>
+                    </div>
+                    <div>
+                        <label>Message: </label>
+                        <label><textarea rows="4" cols="50" placeholder="Message" name="message" required></textarea></label>
+                    </div>
+                    <div>
+                        <button type="submit" value="register">Submit Button</button>
+                    </div>
+                </form>
+                <!--Feedback details form ends here-->
+            </div>
+            <!--Feedback details division ends here-->
+
+            <!--Pricing Details division begin here-->
+            <div id="Pricing_Details" name="Pricing_Details" align= "center">
+                <h2>Pricing Detail</h2>
+
+                <!--Pricing details form begins here-->
+                <form action="" id="Pricing_Details_Form" name="Pricing_Details_Form">
+
+                    <div id="CyclePrice" name="">
+                        <h3>Cycle</h3>
+                        <div id="cyclePriceCircle" name ="cyclePriceCircle" 
+                                style="width: 60px; height: 60px; border-radius: 30px; border:2px solid rgb(8, 16, 20);">
+                            <label id="cycleM">$100</label><br>
+                            <label>/month</label><br>
+                        </div>
+                        <div>
+                                <label>$5/day</label><br>
+                                <label>$100/month</label><br>
+                                <label>$500/yearly</label><br>
+                        </div>
+                        <button>Purchase Now</button>
+                    </div><br>
+
+                    <div id="MotorCyclePrice" name="">
+                            <h3>MotorCycle</h3>
+                            <div id="MotorCyclePriceCircle" name ="MotorCyclePriceCircle" 
+                                    style="width: 60px; height: 60px; border-radius: 30px; border:2px solid rgb(8, 16, 20);">
+                                <label>$100</label><br>
+                                <label>/month</label><br>
+                            </div>
+                            <div>
+                                    <label>$5/day</label><br>
+                                    <label>$100/month</label><br>
+                                    <label>$500/yearly</label><br>
+                            </div>
+                            <button>Purchase Now</button>
+                        </div><br>
+
+                        <div id="FourWheelersPrice" name="">
+                                <h3>Four Wheelers</h3>
+                                <div id="FourWheelersPriceCircle" name ="FourWheelersPriceCircle" 
+                                        style="width: 60px; height: 60px; border-radius: 30px; border:2px solid  rgb(8, 16, 20);">
+                                    <label>$100</label><br>
+                                    <label>/month</label><br>
+                                </div>
+                                <div>
+                                        <label>$5/day</label><br>
+                                        <label>$100/month</label><br>
+                                        <label>$500/yearly</label><br>
+                                </div>
+                                <button>Purchase Now</button>
+                            </div>
+                </form>
+                <!--Pricing Details form ends here-->
+            </div>
+            <!--Pricing Details division ends here-->
+        </body>
+</html>
