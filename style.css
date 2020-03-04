@@ -1,0 +1,184 @@
+#home-Part {
+    background-image: url('image/homebg.png');
+    height: 959px;
+}
+
+.padding15{
+    padding: 15px;
+}
+
+.margin-left15{
+    margin-left: 15%;
+}
+
+.marginOf-weather-app {
+    margin-left: 7%; 
+    margin-top: 20px;
+}
+
+.flex_container {
+    display: flex;    
+    padding: 20px;
+}
+
+.justify-space-around {
+    justify-content: space-around;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.flex_wrap {
+    flex-wrap: wrap;
+}
+
+.nav_class {     
+    font-size: 25px;
+}
+
+.link_class {
+    color: whitesmoke;
+    padding-left: 30px;
+    text-decoration: none;   
+}
+
+#heading_class {
+    font-size: 60px; 
+    color:whitesmoke;   
+ }
+
+ .flex_container_align_self {
+    align-self: center;
+ }
+
+ .button_style_orange {
+    padding: 13px;
+    font-size: 20px;
+    margin: 10px;
+    color: whitesmoke;
+    background: rgb(255, 81, 0);
+    text-decoration: none;
+ }
+
+ .button_style_blue {
+    padding: 13px;
+    font-size: 20px;
+    margin: 10px;
+    color: whitesmoke;
+    background: blue;
+    text-decoration: none;
+ }
+
+ .h2-Style {
+    color: rgb(49, 146, 206); 
+    font-size: 35px; 
+    text-align: center
+ }
+
+ .secondary-data-grey {
+    color: rgba(128, 128, 128, 0.575); 
+    font-size: 20px;
+ }
+
+ .span_style {
+     font-weight: bold;
+    padding: 10px;
+    font-size: 25px;
+    padding-left: 20px;
+ }
+
+ .paragraph_style {
+     font-size: 18px;
+     box-align: justify-content;
+ }
+
+ .margin {
+     margin-top: 100px;
+ }
+
+ .blue {
+     color: rgb(9, 156, 241);
+ }
+
+ #appdownload1 {
+     margin-top: 100px; 
+ }
+
+ .pading-right {
+     padding-right: 20px;
+ }
+
+ .color-white {
+     color: whitesmoke;
+ }
+
+ .color-orange {
+     color: rgb(253, 101, 0);
+ }
+
+ .color-grey {
+     color: rgba(128, 128, 128, 0.925);
+ }
+
+.size {
+    font-size: 60px;
+}
+
+ .font-size {
+     font-size: 25px;
+ }
+
+ .background-color-footer {
+    background-color: #383a53;
+ }
+
+ .hr-style {
+     width: 77%;
+     align-self: center;
+ }
+
+
+ #footer_Part {
+    background-image: url('image/downloadbg.png');
+    height: 350px;
+ }
+
+ .margin-left-px{
+     margin-left: 200px;
+ }
+ 
+ .margin-right-px {
+     margin-right: 200px;
+ }
+
+ #image1 {
+    transform: scale(.6,.7) translate(100px,0px) skewY(5deg);
+ }
+
+ #image2 {
+    transform: scale(.7,.85) translate(-150px,0px)  skewY(2deg);
+}
+
+#image3 {
+    transform: translate(-830px,0) scale(.8,.9)
+}
+
+#image4 {
+    transform: scale(.7,.85) translate(-350px,0px)  skewY(-2deg);
+}
+
+#image5 {
+    transform: scale(.6,.7) translate(400px,0px)  skewY(-5deg);
+}
+
+.margin-left-10 {
+    margin-left: 10%;
+}
+.margin-left-9 {
+    margin-left: 4%;
+}
+
+.margin-right-15 {
+    margin-right: 10%;
+}
