@@ -1,0 +1,19 @@
+package com.metacube.HibernateAssignment1.Service;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+@Service
+public class ImageService {
+	
+	public void saveImage(MultipartFile imageFile, int empId) throws Exception {
+		String folder = "C:\\Users\\Shashank\\Documents\\workspace-spring-tool-suite-4-4.5.1.RELEASE\\HibernateAssignment1\\src\\main\\resources\\static\\images\\";
+		byte[] bytes = imageFile.getBytes();
+		Path path = Paths.get(folder + empId + ".png");
+		Files.write(path, bytes);
+	}
+}
