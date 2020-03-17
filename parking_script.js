@@ -235,7 +235,7 @@ function switchcase(idOfInput) {
             {
                 email = document.getElementById("email").value;
 
-                if (!(/^[A-z]+@[A-z]+\.[A-z]+$/.test(email))) {
+                if (!(/^[A-z_0-9]+@[A-z]+\.[A-z]+$/.test(email))) {
 
                     document.getElementById("error").innerHTML = "Please enter valid email address.";
                 } else {
