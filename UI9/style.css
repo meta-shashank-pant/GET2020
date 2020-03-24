@@ -1,0 +1,17 @@
+body {
+    background-image: url("background.jpg");
+}
+
+label {
+    font-size: 20px;
+    padding: 20px;
+}
+
+input.radio {
+    size: 15px;
+}
+
+p {
+    font-size: 30px;
+    text-align: center;
+}
